@@ -66,7 +66,10 @@ def test_fetch_snapshot_normalizes_issues_and_enriches_pull_requests() -> None:
     transport.add(
         "GET",
         f"{API}/repos/acme/widgets/pulls/8/reviews?per_page=100",
-        [{"user": {"login": "reviewer"}, "state": "CHANGES_REQUESTED", "id": 1}],
+        [
+            {"user": {"login": "reviewer"}, "state": "CHANGES_REQUESTED", "id": 2},
+            {"user": {"login": "reviewer"}, "state": "APPROVED", "id": 1},
+        ],
     )
     transport.add(
         "GET",

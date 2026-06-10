@@ -47,7 +47,10 @@ def render_report(
                 "",
                 _escape(ai_summary.strip()),
                 "",
-                "> This summary is advisory. The deterministic findings below remain the source of truth.",
+                (
+                    "> This summary is advisory. The deterministic findings below "
+                    "remain the source of truth."
+                ),
                 "",
             ]
         )

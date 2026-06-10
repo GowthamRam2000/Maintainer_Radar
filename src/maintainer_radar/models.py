@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import html
 import re
+from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Literal, Mapping
+from typing import Any, Literal
 
 ItemKind = Literal["issue", "pull_request"]
 

@@ -264,7 +264,9 @@ def _review_decision(reviews: list[dict[str, Any]]) -> str | None:
         state = review.get("state")
         review_id = review.get("id", 0)
         if user and isinstance(state, str) and isinstance(review_id, int):
-            latest_by_user[user] = (review_id, state.upper())
+            current = latest_by_user.get(user)
+            if current is None or review_id > current[0]:
+                latest_by_user[user] = (review_id, state.upper())
     states = {state for _, state in latest_by_user.values()}
     if "CHANGES_REQUESTED" in states:
         return "CHANGES_REQUESTED"
